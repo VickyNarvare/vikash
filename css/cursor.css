@@ -1,0 +1,89 @@
+/* Custom Cursor */
+.cursor-dot {
+    width: 5px;
+    height: 5px;
+    background-color: var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9998;
+    pointer-events: none;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+body:hover .cursor-dot,
+body:hover .cursor-outline {
+    opacity: 1;
+}
+
+/* Hover state for cursor */
+body.hovering .cursor-outline {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(99, 102, 241, 0.1);
+    border-color: transparent;
+}
+
+/* Hide default cursor on devices that support hover */
+@media (pointer: fine) {
+    body {
+        cursor: none;
+    }
+
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    .filter-btn,
+    .skill-card-new,
+    .project-card,
+    .social-icon-circle {
+        cursor: none;
+    }
+}
+
+/* Hide custom cursor on touch devices */
+@media (pointer: coarse) {
+
+    .cursor-dot,
+    .cursor-outline {
+        display: none;
+    }
+
+    body {
+        cursor: auto;
+    }
+}
+
+/* Hero Name Shine Effect */
+.hero-name {
+    background: linear-gradient(to right, #fff 20%, #818cf8 40%, #818cf8 60%, #fff 80%);
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
